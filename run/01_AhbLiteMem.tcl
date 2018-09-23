@@ -20,6 +20,18 @@ set s3 ../../src/debug/*.v
 vlog $p0 $p1 $p2 $p3 $p4  $i0 $i1 $i2 $i3  $s0 $s1 $s2 $s3
 
 vsim work.test_ahb_lite_mem
+add wave -height 32 -radix hex sim:/test_ahb_lite_mem/HCLK  	
+add wave -height 32	-radix hex sim:/test_ahb_lite_mem/HTRANS	    
+add wave -height 32	-radix hex sim:/test_ahb_lite_mem/HADDR 
+add wave -height 32	-radix hex sim:/test_ahb_lite_mem/HWRITE 
+add wave -height 32	-radix hex sim:/test_ahb_lite_mem/HBURST 
+add wave -height 32	-radix hex sim:/test_ahb_lite_mem/HSIZE 
+add wave -height 32	-radix hex sim:/test_ahb_lite_mem/HREADY 
+add wave -height 32	-radix hex sim:/test_ahb_lite_mem/HWDATA 
+add wave -height 32	-radix hex sim:/test_ahb_lite_mem/HRDATA 
+add wave -divider
+
+
 add wave -radix hex sim:/test_ahb_lite_mem/*
 run -all
 wave zoom full
