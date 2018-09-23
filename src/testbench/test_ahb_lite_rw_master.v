@@ -63,9 +63,9 @@ module test_ahb_lite_rw_master;
         .HWDATA     (   HWDATA      ),
         .HWRITE     (   HWRITE      ),
         .HRDATA     (   HRDATA      ),
-        .HREADY     (   HREADY      ),
+        .HREADY     (   1'b1        ),
+        .HREADYOUT  (   HREADY      ),
         .HRESP      (   HRESP       ),
-
         .CKE        (   CKE         ),
         .CSn        (   CSn         ),
         .RASn       (   RASn        ),
