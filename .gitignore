@@ -25,3 +25,4 @@ incremental_db/
 *.summary
 *.cdf
 *stp
+*.bak
