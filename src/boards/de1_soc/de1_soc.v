@@ -86,15 +86,10 @@ module de1_soc(
 //=======================================================
 
     //wire clk200;
-
-   // pll pll(CLOCK_50, DRAM_CLK, HCLK, clk200);
-
-	assign HCLK = CLOCK_50;
-	
 	sdram_pll u0 (
 		.ref_clk_clk        (CLOCK_50),        	//      ref_clk.clk
 		.ref_reset_reset    (0),   				 	//    ref_reset.reset
-		.sys_clk_clk        (),        				//      sys_clk.clk
+		.sys_clk_clk        (HCLK),        				//      sys_clk.clk
 		.sdram_clk_clk      (DRAM_CLK),      		//    sdram_clk.clk
 		.reset_source_reset ()  						// reset_source.reset
 	);
@@ -110,10 +105,10 @@ module de1_soc(
 
 	ahb_lite_rw_master
     #(
-        .ADDR_INCREMENT ( 4         ),
-        .DELAY_BITS     ( 26        ),
-        .INCREMENT_CNT  ( 16000     ),
-        .READ_ITER_CNT  ( 8000000   )
+        .ADDR_INCREMENT ( 4        ),
+        .DELAY_BITS     ( 18        ),
+        .INCREMENT_CNT  ( 15728640     ),
+        .READ_ITER_CNT  ( 10   )
     )
     master 
     (
@@ -148,7 +143,7 @@ module de1_soc(
         .DELAY_tRFC         (2),
         .DELAY_tMRD         (0),
         .DELAY_tRCD         (0),
-        .DELAY_tCAS         (0),
+        .DELAY_tCAS         (1),
         .DELAY_afterREAD    (0),
         .DELAY_afterWRITE   (2),
         .COUNT_initAutoRef  (8)
