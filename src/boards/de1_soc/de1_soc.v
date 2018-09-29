@@ -105,9 +105,9 @@ module de1_soc(
 
 	ahb_lite_rw_master
     #(
-        .ADDR_INCREMENT ( 4        ),
-        .DELAY_BITS     ( 18        ),
-        .INCREMENT_CNT  ( 15728640     ),
+        .ADDR_INCREMENT ( 32'h4),
+        .DELAY_BITS     ( 10        ),
+        .INCREMENT_CNT  ( 32'h100_0000-1),  //go through all the 64MB address
         .READ_ITER_CNT  ( 10   )
     )
     master 
