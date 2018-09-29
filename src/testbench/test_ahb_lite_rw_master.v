@@ -147,7 +147,7 @@ module test_ahb_lite_rw_master;
 
         end
 
-        #70000 //waiting for auto_refresh
+        #100000 //waiting for auto_refresh
         $stop;
         $finish;
     end
